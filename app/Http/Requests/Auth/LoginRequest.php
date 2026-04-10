@@ -29,7 +29,7 @@ class LoginRequest extends FormRequest
         if (! Auth::attempt($credentials, $this->boolean('remember'))) {
             // Jika gagal, coba menggunakan NIS (Nomor Induk Siswa)
             $credentialsNis = ['nis' => $this->login, 'password' => $this->password];
-            
+
             if (! Auth::attempt($credentialsNis, $this->boolean('remember'))) {
                 throw ValidationException::withMessages([
                     'login' => trans('auth.failed'),
