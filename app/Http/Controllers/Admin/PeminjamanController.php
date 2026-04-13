@@ -74,7 +74,7 @@ class PeminjamanController extends Controller
 
         if ($tanggal_kembali->gt($peminjaman->tanggal_kembali_rencana)) {
             $terlambat = $tanggal_kembali->diffInDays($peminjaman->tanggal_kembali_rencana);
-            $denda = $terlambat * 1000; // Rp 1.000 per hari
+            $denda = $terlambat * 10000; // Rp 1.000 per hari
         }
 
         $peminjaman->update([
